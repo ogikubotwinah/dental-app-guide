@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>院内アプリ 使用方法ガイド｜荻窪ツイン動物病院</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif; margin: 0; background: #f1f5f9; color: #1e293b; line-height: 1.7; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 28px 16px 80px; }
+  header { background: linear-gradient(135deg, #0f172a, #334155); color: #fff; padding: 26px 26px; border-radius: 18px; margin-bottom: 10px; }
+  header h1 { font-size: 1.45rem; margin: 0; }
+  header p { margin: 8px 0 0; font-size: .88rem; opacity: .85; }
+  .lead { font-size: .92rem; color: #475569; margin: 14px 4px 22px; }
+  .lead a.quick { display: inline-block; margin-top: 6px; color: #0B5B41; font-weight: 700; text-decoration: none; border-bottom: 2px solid #D9782A; }
+  a.card { display: block; text-decoration: none; color: inherit; background: #fff; border: 2px solid #e2e8f0; border-radius: 18px; padding: 20px 22px; margin: 14px 0; box-shadow: 0 4px 14px rgba(15,23,42,.06); transition: transform .1s, box-shadow .1s, border-color .1s; }
+  a.card:active { transform: scale(.99); }
+  a.card.dental:hover, a.card.dental:focus { border-color: #93c5fd; }
+  a.card.filaria:hover, a.card.filaria:focus { border-color: #f9a8d4; }
+  a.card.health:hover, a.card.health:focus { border-color: #5eead4; }
+  a.card.inventory:hover, a.card.inventory:focus { border-color: #fdba74; }
+  a.card.petty:hover, a.card.petty:focus { border-color: #86efac; }
+  a.card.nyuin:hover, a.card.nyuin:focus { border-color: #a5b4fc; }
+  .nyuin .icon { background: #eef2ff; }
+  .nyuin .badge { background: #eef2ff; color: #4f46e5; border: 1px solid #c7d2fe; }
+  .nyuin .open { color: #4f46e5; }
+  a.card.casebank:hover, a.card.casebank:focus { border-color: #c4b5fd; }
+  .casebank .icon { background: #f5f3ff; }
+  .casebank .badge { background: #f5f3ff; color: #7c3aed; border: 1px solid #ddd6fe; }
+  .casebank .open { color: #7c3aed; }
+  a.card.kartevoice:hover, a.card.kartevoice:focus { border-color: #fda4af; }
+  .kartevoice .icon { background: #fff1f2; }
+  .kartevoice .badge { background: #fff1f2; color: #e11d48; border: 1px solid #fecdd3; }
+  .kartevoice .open { color: #e11d48; }
+  a.card.vetlink:hover, a.card.vetlink:focus { border-color: #67e8f9; }
+  .vetlink .icon { background: #ecfeff; }
+  .vetlink .badge { background: #ecfeff; color: #0891b2; border: 1px solid #a5f3fc; }
+  .vetlink .open { color: #0891b2; }
+  a.card.kintai:hover, a.card.kintai:focus { border-color: #fcd34d; }
+  .kintai .icon { background: #fffbeb; }
+  .kintai .badge { background: #fffbeb; color: #b45309; border: 1px solid #fde68a; }
+  .kintai .open { color: #b45309; }
+  a.card.link:hover, a.card.link:focus { border-color: #c4b5fd; }
+  .link .icon { background: #f5f3ff; }
+  .link .badge { background: #f5f3ff; color: #6d28d9; border: 1px solid #ddd6fe; }
+  .link .open { color: #6d28d9; }
+  a.card.emr:hover, a.card.emr:focus { border-color: #5eead4; }
+  .emr .icon { background: #f0fdfa; }
+  .emr .badge { background: #f0fdfa; color: #0f766e; border: 1px solid #99f6e4; }
+  .emr .open { color: #0f766e; }
+  a.card.resv:hover, a.card.resv:focus { border-color: #7dd3fc; }
+  .resv .icon { background: #f0f9ff; }
+  .resv .badge { background: #f0f9ff; color: #0369a1; border: 1px solid #bae6fd; }
+  .resv .open { color: #0369a1; }
+  a.card.litlib:hover, a.card.litlib:focus { border-color: #fcd34d; }
+  .litlib .icon { background: #fffbeb; }
+  .litlib .badge { background: #fffbeb; color: #b45309; border: 1px solid #fde68a; }
+  .litlib .open { color: #b45309; }
+  .health .badge { background: #f0fdfa; color: #0d9488; border: 1px solid #99f6e4; }
+  .health .open { color: #0d9488; }
+  .inventory .icon { background: #fff7ed; }
+  .inventory .badge { background: #fff7ed; color: #ea580c; border: 1px solid #fed7aa; }
+  .inventory .open { color: #ea580c; }
+  .petty .icon { background: #f0fdf4; }
+  .petty .badge { background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; }
+  .petty .open { color: #16a34a; }
+  .cardhead { display: flex; align-items: center; gap: 14px; }
+  .icon { width: 54px; height: 54px; border-radius: 14px; display: grid; place-items: center; font-size: 1.6rem; flex: 0 0 auto; }
+  .dental .icon { background: #eff6ff; }
+  .filaria .icon { background: #fdf2f8; }
+  .cardhead h2 { font-size: 1.12rem; margin: 0; }
+  .badge { display: inline-block; padding: 1px 10px; border-radius: 999px; font-size: .72rem; font-weight: 700; margin-top: 3px; }
+  .dental .badge { background: #eff6ff; color: #2563eb; border: 1px solid #bfdbfe; }
+  .filaria .badge { background: #fdf2f8; color: #db2777; border: 1px solid #fbcfe8; }
+  .desc { font-size: .88rem; color: #475569; margin: 10px 2px 0; }
+  .open { text-align: right; font-weight: 700; font-size: .9rem; margin-top: 8px; }
+  .dental .open { color: #2563eb; }
+  .filaria .open { color: #db2777; }
+  footer { margin-top: 44px; color: #64748b; font-size: .82rem; text-align: center; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>院内アプリ 使用方法ガイド</h1>
+  <p>荻窪ツイン動物病院 ｜ スタッフ・獣医師向け</p>
+</header>
+<div class="lead">見たいアプリのガイドを選んでください。スマホ・院外からも閲覧できます。<br><a class="quick" href="./">アイコンから選ぶ画面（かんたん表示）はこちら →</a></div>
+
+<a class="card kintai" href="kintai.html">
+  <div class="cardhead">
+    <div class="icon">⏰</div>
+    <div>
+      <h2>勤怠アプリ</h2>
+      <span class="badge">全スタッフ向け</span>
+    </div>
+  </div>
+  <div class="desc">打刻はセコムのカードをかざすだけ。スマホのマイページから、自分の勤務時間・休暇の残り・給与明細・打刻履歴が見られます。休暇／勤務時間の分割／中抜け／遅刻の申請もここから。打ち忘れの直し方、勤怠のきまりも。</div>
+  <div class="open">ガイドを開く →</div>
+</a>
+
+<a class="card link" href="linkage.html">
+  <div class="cardhead">
+    <div class="icon">🔗</div>
+    <div>
+      <h2>アプリどうしのつながり</h2>
+      <span class="badge">全スタッフ向け</span>
+    </div>
+  </div>
+  <div class="desc">「どこに入れたものが、どこに出てくるか」の一覧。予約→受付ボード、処方→在庫、勤怠→予約の枠、撮影→カルテ など。<b>二度入力しなくていいところ</b>と<b>手で動かす必要があるところ</b>、そして<b>まだつながっていないもの</b>が分かります。</div>
+  <div class="open">ガイドを開く →</div>
+</a>
+
+<a class="card emr" href="emr.html">
+  <div class="cardhead">
+    <div class="icon">🩺</div>
+    <div>
+      <h2>電子カルテ（患者タイムライン）</h2>
+      <span class="badge">受付・看護師・獣医師向け</span>
+    </div>
+  </div>
+  <div class="desc">当院オリジナルの電子カルテ。カルテNo.を入れるとその子の来院・検査・体重・会計・画像が1本の時系列で出ます。受付ボードと会計の呼び出し（受付PCだけ鳴る）、受付からの経過時間、カルテ記載・検査入力・レジと領収書・薬袋、紹介状／診療情報提供書（FAX・メール・Web貼り付け）、ワクチン証明書まで。</div>
+  <div class="open">ガイドを開く →</div>
+</a>
+
+<a class="card resv" href="resv.html">
+  <div class="cardhead">
+    <div class="icon">📅</div>
+    <div>
+      <h2>予約管理アプリ</h2>
+      <span class="badge">受付・スタッフ・獣医師・トリマー向け</span>
+    </div>
+  </div>
+  <div class="desc">診察・トリミング・ペットホテルの予約を1画面で管理（予約革命の置き換え）。カレンダーの見方・予約の入れ方・この子ごとのトリミング時間・ホテルタブ・再来機での来院受付・診察券QR発行・飼い主さまのLINE予約ルール。</div>
+  <div class="open">ガイドを開く →</div>
+</a>
+
+<a class="card litlib" href="lit-library.html">
+  <div class="cardhead">
+    <div class="icon">📚</div>
+    <div>
+      <h2>文献ライブラリ</h2>
+      <span class="badge">獣医師向け</span>
+    </div>
+  </div>
+  <div class="desc">世界の新しい論文をAIが日本語で要約。獣医歯科・循環器・麻酔・人歯科を検索して読めます（院内PC・パスコード不要）。要約は下読み用なので、診療判断は原文でご確認を。</div>
+  <div class="open">ガイドを開く →</div>
+</a>
+
+<a class="card dental" href="dental.html">
+  <div class="cardhead">
+    <div class="icon">🦷</div>
+    <div>
+      <h2>歯科治療報告書アプリ</h2>
+      <span class="badge">主に獣医師向け</span>
+    </div>
+  </div>
+  <div class="desc">紹介症例の歯科治療報告書づくり。カルテ自動取得・AI下書き・X線/写真の自動配置の使い方と、撮影スタッフへのお願い（撮影順ルール）。</div>
+  <div class="open">ガイドを開く →</div>
+</a>
+
+<a class="card filaria" href="filaria.html">
+  <div class="cardhead">
+    <div class="icon">🩸</div>
+    <div>
+      <h2>フィラリア健康診断アプリ</h2>
+      <span class="badge">受付・スタッフ・獣医師向け</span>
+    </div>
+  </div>
+  <div class="desc">フィラリア健診の血液検査結果を自動でLINE報告。患者登録のしかた・当日の流れ・飼い主さんのLINE連携と受け取り・定期健康診断との連携。</div>
+  <div class="open">ガイドを開く →</div>
+</a>
+
+<a class="card health" href="health.html">
+  <div class="cardhead">
+    <div class="icon" style="background:#f0fdfa">🩺</div>
+    <div>
+      <h2>定期健康診断アプリ</h2>
+      <span class="badge">主に獣医師向け</span>
+    </div>
+  </div>
+  <div class="desc">からだ全体の健康診断報告書づくり。検査データの自動取込・AI評価下書き・身体検査/画像所見の入力・過去比較・LINE送信（獣医師レビュー必須）。</div>
+  <div class="open">ガイドを開く →</div>
+</a>
+
+<a class="card inventory" href="inventory.html">
+  <div class="cardhead">
+    <div class="icon">📦</div>
+    <div>
+      <h2>在庫・発注管理アプリ</h2>
+      <span class="badge">受付・スタッフ向け</span>
+    </div>
+  </div>
+  <div class="desc">院内の在庫と発注を1つで管理。在庫一覧・発注の登録／発注先別／納品（未発注→発注中→納品済）・納品履歴・棚卸・発注先/スタッフ/発注アラート/CSV入出力の使い方。</div>
+  <div class="open">ガイドを開く →</div>
+</a>
+
+<a class="card petty" href="petty-cash.html">
+  <div class="cardhead">
+    <div class="icon">💰</div>
+    <div>
+      <h2>小口管理アプリ（病院小口）</h2>
+      <span class="badge">受付・スタッフ向け</span>
+    </div>
+  </div>
+  <div class="desc">病院の小口現金を管理。領収書を撮るとAIが金額・店名・カテゴリを自動入力。補充の記録、現金が足りない時の「保留」と銀行からの引き出し目安、月次まとめ・CSV出力の使い方。</div>
+  <div class="open">ガイドを開く →</div>
+</a>
+
+
+<a class="card nyuin" href="nyuin.html">
+  <div class="cardhead">
+    <div class="icon">🛏️</div>
+    <div>
+      <h2>入院管理アプリ</h2>
+      <span class="badge">獣医師・動物看護師向け</span>
+    </div>
+  </div>
+  <div class="desc">入院患者の指示書・処置チェック・点滴/投薬・血液検査を1画面で管理。入院ボードの見方・実施チェック（2タップ）・体重から用量自動計算・当日指示書の印刷・夜間ダークモード。</div>
+  <div class="open">ガイドを開く →</div>
+</a>
+
+<a class="card vetlink" href="vet-link.html">
+  <div class="cardhead">
+    <div class="icon">🔗</div>
+    <div>
+      <h2>VetLink（院内診療サポート）</h2>
+      <span class="badge">受付・スタッフ・獣医師向け</span>
+    </div>
+  </div>
+  <div class="desc">問診票・同意書・麻酔/手術・歯科カルテを患者情報で一括管理。カルテ番号からアーミックス自動取込・手術予定の自動反映・iPad署名・入院管理アプリ連携。ホームの見方／麻酔イベント／同意書・テンプレート／薬剤・スタッフ設定の使い方。</div>
+  <div class="open">ガイドを開く →</div>
+</a>
+
+<a class="card casebank" href="case-bank.html">
+  <div class="cardhead">
+    <div class="icon">🎙️</div>
+    <div>
+      <h2>症例音声メモアプリ</h2>
+      <span class="badge">主に獣医師向け</span>
+    </div>
+  </div>
+  <div class="desc">学会・セミナー用の症例を話すだけでメモ。カルテNo.から患者名を自動入力・文字起こし・診療科タグ付け・症例ライブラリでの検索。日記は院長専用。</div>
+  <div class="open">ガイドを開く →</div>
+</a>
+
+<a class="card kartevoice" href="karte-voice.html">
+  <div class="cardhead">
+    <div class="icon">📝</div>
+    <div>
+      <h2>カルテ音声SOAPアプリ</h2>
+      <span class="badge">主に獣医師向け</span>
+    </div>
+  </div>
+  <div class="desc">診察の会話を話すだけでSOAPカルテ下書き。録音→AIが要点→先生が確認→Ahrmicsの主観ノートへ書き込み。録音を足せば要点は自動でまとめ直し（反映状況はバッジで確認）・診察タイプ・体重/体温の記録・2頭まとめ診察の分割転記・一覧の3区分の使い方。</div>
+  <div class="open">ガイドを開く →</div>
+</a>
+
+<footer>荻窪ツイン動物病院 ｜ 院内アプリ 使用方法ガイド<br>ガイドの追加・修正は院長まで</footer>
+</div>
+</body>
+</html>

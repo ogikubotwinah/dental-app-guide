@@ -2,263 +2,189 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="robots" content="noindex">
-<title>院内アプリ 使用方法ガイド｜荻窪ツイン動物病院</title>
-<style>
-  * { box-sizing: border-box; }
-  body { font-family: "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif; margin: 0; background: #f1f5f9; color: #1e293b; line-height: 1.7; }
-  .wrap { max-width: 760px; margin: 0 auto; padding: 28px 16px 80px; }
-  header { background: linear-gradient(135deg, #0f172a, #334155); color: #fff; padding: 26px 26px; border-radius: 18px; margin-bottom: 10px; }
-  header h1 { font-size: 1.45rem; margin: 0; }
-  header p { margin: 8px 0 0; font-size: .88rem; opacity: .85; }
-  .lead { font-size: .92rem; color: #475569; margin: 14px 4px 22px; }
-  .lead a.quick { display: inline-block; margin-top: 6px; color: #0B5B41; font-weight: 700; text-decoration: none; border-bottom: 2px solid #D9782A; }
-  a.card { display: block; text-decoration: none; color: inherit; background: #fff; border: 2px solid #e2e8f0; border-radius: 18px; padding: 20px 22px; margin: 14px 0; box-shadow: 0 4px 14px rgba(15,23,42,.06); transition: transform .1s, box-shadow .1s, border-color .1s; }
-  a.card:active { transform: scale(.99); }
-  a.card.dental:hover, a.card.dental:focus { border-color: #93c5fd; }
-  a.card.filaria:hover, a.card.filaria:focus { border-color: #f9a8d4; }
-  a.card.health:hover, a.card.health:focus { border-color: #5eead4; }
-  a.card.inventory:hover, a.card.inventory:focus { border-color: #fdba74; }
-  a.card.petty:hover, a.card.petty:focus { border-color: #86efac; }
-  a.card.nyuin:hover, a.card.nyuin:focus { border-color: #a5b4fc; }
-  .nyuin .icon { background: #eef2ff; }
-  .nyuin .badge { background: #eef2ff; color: #4f46e5; border: 1px solid #c7d2fe; }
-  .nyuin .open { color: #4f46e5; }
-  a.card.casebank:hover, a.card.casebank:focus { border-color: #c4b5fd; }
-  .casebank .icon { background: #f5f3ff; }
-  .casebank .badge { background: #f5f3ff; color: #7c3aed; border: 1px solid #ddd6fe; }
-  .casebank .open { color: #7c3aed; }
-  a.card.kartevoice:hover, a.card.kartevoice:focus { border-color: #fda4af; }
-  .kartevoice .icon { background: #fff1f2; }
-  .kartevoice .badge { background: #fff1f2; color: #e11d48; border: 1px solid #fecdd3; }
-  .kartevoice .open { color: #e11d48; }
-  a.card.vetlink:hover, a.card.vetlink:focus { border-color: #67e8f9; }
-  .vetlink .icon { background: #ecfeff; }
-  .vetlink .badge { background: #ecfeff; color: #0891b2; border: 1px solid #a5f3fc; }
-  .vetlink .open { color: #0891b2; }
-  a.card.kintai:hover, a.card.kintai:focus { border-color: #fcd34d; }
-  .kintai .icon { background: #fffbeb; }
-  .kintai .badge { background: #fffbeb; color: #b45309; border: 1px solid #fde68a; }
-  .kintai .open { color: #b45309; }
-  a.card.link:hover, a.card.link:focus { border-color: #c4b5fd; }
-  .link .icon { background: #f5f3ff; }
-  .link .badge { background: #f5f3ff; color: #6d28d9; border: 1px solid #ddd6fe; }
-  .link .open { color: #6d28d9; }
-  a.card.emr:hover, a.card.emr:focus { border-color: #5eead4; }
-  .emr .icon { background: #f0fdfa; }
-  .emr .badge { background: #f0fdfa; color: #0f766e; border: 1px solid #99f6e4; }
-  .emr .open { color: #0f766e; }
-  a.card.resv:hover, a.card.resv:focus { border-color: #7dd3fc; }
-  .resv .icon { background: #f0f9ff; }
-  .resv .badge { background: #f0f9ff; color: #0369a1; border: 1px solid #bae6fd; }
-  .resv .open { color: #0369a1; }
-  a.card.litlib:hover, a.card.litlib:focus { border-color: #fcd34d; }
-  .litlib .icon { background: #fffbeb; }
-  .litlib .badge { background: #fffbeb; color: #b45309; border: 1px solid #fde68a; }
-  .litlib .open { color: #b45309; }
-  .health .badge { background: #f0fdfa; color: #0d9488; border: 1px solid #99f6e4; }
-  .health .open { color: #0d9488; }
-  .inventory .icon { background: #fff7ed; }
-  .inventory .badge { background: #fff7ed; color: #ea580c; border: 1px solid #fed7aa; }
-  .inventory .open { color: #ea580c; }
-  .petty .icon { background: #f0fdf4; }
-  .petty .badge { background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; }
-  .petty .open { color: #16a34a; }
-  .cardhead { display: flex; align-items: center; gap: 14px; }
-  .icon { width: 54px; height: 54px; border-radius: 14px; display: grid; place-items: center; font-size: 1.6rem; flex: 0 0 auto; }
-  .dental .icon { background: #eff6ff; }
-  .filaria .icon { background: #fdf2f8; }
-  .cardhead h2 { font-size: 1.12rem; margin: 0; }
-  .badge { display: inline-block; padding: 1px 10px; border-radius: 999px; font-size: .72rem; font-weight: 700; margin-top: 3px; }
-  .dental .badge { background: #eff6ff; color: #2563eb; border: 1px solid #bfdbfe; }
-  .filaria .badge { background: #fdf2f8; color: #db2777; border: 1px solid #fbcfe8; }
-  .desc { font-size: .88rem; color: #475569; margin: 10px 2px 0; }
-  .open { text-align: right; font-weight: 700; font-size: .9rem; margin-top: 8px; }
-  .dental .open { color: #2563eb; }
-  .filaria .open { color: #db2777; }
-  footer { margin-top: 44px; color: #64748b; font-size: .82rem; text-align: center; }
-</style>
+<meta name="theme-color" content="#003F36">
+<title>院内アプリ メニュー｜荻窪ツイン動物病院</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="apps.css">
 </head>
 <body>
-<div class="wrap">
 
-<header>
-  <h1>院内アプリ 使用方法ガイド</h1>
-  <p>荻窪ツイン動物病院 ｜ スタッフ・獣医師向け</p>
-</header>
-<div class="lead">見たいアプリのガイドを選んでください。スマホ・院外からも閲覧できます。<br><a class="quick" href="apps.html">アイコンから選ぶ画面（かんたん表示）はこちら →</a></div>
-
-<a class="card kintai" href="kintai.html">
-  <div class="cardhead">
-    <div class="icon">⏰</div>
-    <div>
-      <h2>勤怠アプリ</h2>
-      <span class="badge">全スタッフ向け</span>
-    </div>
-  </div>
-  <div class="desc">打刻はセコムのカードをかざすだけ。スマホのマイページから、自分の勤務時間・休暇の残り・給与明細・打刻履歴が見られます。休暇／勤務時間の分割／中抜け／遅刻の申請もここから。打ち忘れの直し方、勤怠のきまりも。</div>
-  <div class="open">ガイドを開く →</div>
-</a>
-
-<a class="card link" href="linkage.html">
-  <div class="cardhead">
-    <div class="icon">🔗</div>
-    <div>
-      <h2>アプリどうしのつながり</h2>
-      <span class="badge">全スタッフ向け</span>
-    </div>
-  </div>
-  <div class="desc">「どこに入れたものが、どこに出てくるか」の一覧。予約→受付ボード、処方→在庫、勤怠→予約の枠、撮影→カルテ など。<b>二度入力しなくていいところ</b>と<b>手で動かす必要があるところ</b>、そして<b>まだつながっていないもの</b>が分かります。</div>
-  <div class="open">ガイドを開く →</div>
-</a>
-
-<a class="card emr" href="emr.html">
-  <div class="cardhead">
-    <div class="icon">🩺</div>
-    <div>
-      <h2>電子カルテ（患者タイムライン）</h2>
-      <span class="badge">受付・看護師・獣医師向け</span>
-    </div>
-  </div>
-  <div class="desc">当院オリジナルの電子カルテ。カルテNo.を入れるとその子の来院・検査・体重・会計・画像が1本の時系列で出ます。受付ボードと会計の呼び出し（受付PCだけ鳴る）、受付からの経過時間、カルテ記載・検査入力・レジと領収書・薬袋、紹介状／診療情報提供書（FAX・メール・Web貼り付け）、ワクチン証明書まで。</div>
-  <div class="open">ガイドを開く →</div>
-</a>
-
-<a class="card resv" href="resv.html">
-  <div class="cardhead">
-    <div class="icon">📅</div>
-    <div>
-      <h2>予約管理アプリ</h2>
-      <span class="badge">受付・スタッフ・獣医師・トリマー向け</span>
-    </div>
-  </div>
-  <div class="desc">診察・トリミング・ペットホテルの予約を1画面で管理（予約革命の置き換え）。カレンダーの見方・予約の入れ方・この子ごとのトリミング時間・ホテルタブ・再来機での来院受付・診察券QR発行・飼い主さまのLINE予約ルール。</div>
-  <div class="open">ガイドを開く →</div>
-</a>
-
-<a class="card litlib" href="lit-library.html">
-  <div class="cardhead">
-    <div class="icon">📚</div>
-    <div>
-      <h2>文献ライブラリ</h2>
-      <span class="badge">獣医師向け</span>
-    </div>
-  </div>
-  <div class="desc">世界の新しい論文をAIが日本語で要約。獣医歯科・循環器・麻酔・人歯科を検索して読めます（院内PC・パスコード不要）。要約は下読み用なので、診療判断は原文でご確認を。</div>
-  <div class="open">ガイドを開く →</div>
-</a>
-
-<a class="card dental" href="dental.html">
-  <div class="cardhead">
-    <div class="icon">🦷</div>
-    <div>
-      <h2>歯科治療報告書アプリ</h2>
-      <span class="badge">主に獣医師向け</span>
-    </div>
-  </div>
-  <div class="desc">紹介症例の歯科治療報告書づくり。カルテ自動取得・AI下書き・X線/写真の自動配置の使い方と、撮影スタッフへのお願い（撮影順ルール）。</div>
-  <div class="open">ガイドを開く →</div>
-</a>
-
-<a class="card filaria" href="filaria.html">
-  <div class="cardhead">
-    <div class="icon">🩸</div>
-    <div>
-      <h2>フィラリア健康診断アプリ</h2>
-      <span class="badge">受付・スタッフ・獣医師向け</span>
-    </div>
-  </div>
-  <div class="desc">フィラリア健診の血液検査結果を自動でLINE報告。患者登録のしかた・当日の流れ・飼い主さんのLINE連携と受け取り・定期健康診断との連携。</div>
-  <div class="open">ガイドを開く →</div>
-</a>
-
-<a class="card health" href="health.html">
-  <div class="cardhead">
-    <div class="icon" style="background:#f0fdfa">🩺</div>
-    <div>
-      <h2>定期健康診断アプリ</h2>
-      <span class="badge">主に獣医師向け</span>
-    </div>
-  </div>
-  <div class="desc">からだ全体の健康診断報告書づくり。検査データの自動取込・AI評価下書き・身体検査/画像所見の入力・過去比較・LINE送信（獣医師レビュー必須）。</div>
-  <div class="open">ガイドを開く →</div>
-</a>
-
-<a class="card inventory" href="inventory.html">
-  <div class="cardhead">
-    <div class="icon">📦</div>
-    <div>
-      <h2>在庫・発注管理アプリ</h2>
-      <span class="badge">受付・スタッフ向け</span>
-    </div>
-  </div>
-  <div class="desc">院内の在庫と発注を1つで管理。在庫一覧・発注の登録／発注先別／納品（未発注→発注中→納品済）・納品履歴・棚卸・発注先/スタッフ/発注アラート/CSV入出力の使い方。</div>
-  <div class="open">ガイドを開く →</div>
-</a>
-
-<a class="card petty" href="petty-cash.html">
-  <div class="cardhead">
-    <div class="icon">💰</div>
-    <div>
-      <h2>小口管理アプリ（病院小口）</h2>
-      <span class="badge">受付・スタッフ向け</span>
-    </div>
-  </div>
-  <div class="desc">病院の小口現金を管理。領収書を撮るとAIが金額・店名・カテゴリを自動入力。補充の記録、現金が足りない時の「保留」と銀行からの引き出し目安、月次まとめ・CSV出力の使い方。</div>
-  <div class="open">ガイドを開く →</div>
-</a>
-
-
-<a class="card nyuin" href="nyuin.html">
-  <div class="cardhead">
-    <div class="icon">🛏️</div>
-    <div>
-      <h2>入院管理アプリ</h2>
-      <span class="badge">獣医師・動物看護師向け</span>
-    </div>
-  </div>
-  <div class="desc">入院患者の指示書・処置チェック・点滴/投薬・血液検査を1画面で管理。入院ボードの見方・実施チェック（2タップ）・体重から用量自動計算・当日指示書の印刷・夜間ダークモード。</div>
-  <div class="open">ガイドを開く →</div>
-</a>
-
-<a class="card vetlink" href="vet-link.html">
-  <div class="cardhead">
-    <div class="icon">🔗</div>
-    <div>
-      <h2>VetLink（院内診療サポート）</h2>
-      <span class="badge">受付・スタッフ・獣医師向け</span>
-    </div>
-  </div>
-  <div class="desc">問診票・同意書・麻酔/手術・歯科カルテを患者情報で一括管理。カルテ番号からアーミックス自動取込・手術予定の自動反映・iPad署名・入院管理アプリ連携。ホームの見方／麻酔イベント／同意書・テンプレート／薬剤・スタッフ設定の使い方。</div>
-  <div class="open">ガイドを開く →</div>
-</a>
-
-<a class="card casebank" href="case-bank.html">
-  <div class="cardhead">
-    <div class="icon">🎙️</div>
-    <div>
-      <h2>症例音声メモアプリ</h2>
-      <span class="badge">主に獣医師向け</span>
-    </div>
-  </div>
-  <div class="desc">学会・セミナー用の症例を話すだけでメモ。カルテNo.から患者名を自動入力・文字起こし・診療科タグ付け・症例ライブラリでの検索。日記は院長専用。</div>
-  <div class="open">ガイドを開く →</div>
-</a>
-
-<a class="card kartevoice" href="karte-voice.html">
-  <div class="cardhead">
-    <div class="icon">📝</div>
-    <div>
-      <h2>カルテ音声SOAPアプリ</h2>
-      <span class="badge">主に獣医師向け</span>
-    </div>
-  </div>
-  <div class="desc">診察の会話を話すだけでSOAPカルテ下書き。録音→AIが要点→先生が確認→Ahrmicsの主観ノートへ書き込み。録音を足せば要点は自動でまとめ直し（反映状況はバッジで確認）・診察タイプ・体重/体温の記録・2頭まとめ診察の分割転記・一覧の3区分の使い方。</div>
-  <div class="open">ガイドを開く →</div>
-</a>
-
-<footer>荻窪ツイン動物病院 ｜ 院内アプリ 使用方法ガイド<br>ガイドの追加・修正は院長まで</footer>
+<div class="deco" aria-hidden="true">
+  <svg class="arc-top" viewBox="0 0 640 360" focusable="false">
+    <path d="M660 -20C563 42 518 119 443 189C364 263 278 307 153 330" fill="none" stroke="#F2AD45" stroke-width="1.7"/>
+    <path d="M676 20C580 77 535 145 464 212C385 286 305 326 187 349" fill="none" stroke="#E6A23D" stroke-width="1" opacity=".78"/>
+    <path d="M692 79C602 126 561 185 494 245C421 310 348 346 244 363" fill="none" stroke="#E0A03E" stroke-width="1.1" opacity=".83"/>
+  </svg>
 </div>
+
+<div class="page">
+<header class="hero">
+  <div class="hero-in">
+    <p class="eyebrow">荻窪ツイン動物病院</p>
+    <h1>院内アプリ<small>使用方法ガイド</small></h1>
+    <div class="rule" aria-hidden="true"></div>
+    <p class="hero-copy">院内で利用するアプリをまとめました。<br>アイコンをタップすると、<br>使い方のページが開きます。</p>
+  </div>
+</header>
+
+<main class="sheet">
+
+  <div class="chips" role="group" aria-label="担当で絞り込む">
+    <button class="chip" type="button" data-role="all" aria-pressed="true">すべて</button>
+    <button class="chip" type="button" data-role="staff" aria-pressed="false">受付・看護師</button>
+    <button class="chip" type="button" data-role="vet" aria-pressed="false">獣医師</button>
+    <button class="chip" type="button" data-role="other" aria-pressed="false">その他</button>
+  </div>
+
+  <nav class="app-groups" aria-label="アプリ一覧">
+
+  <section class="role-group" data-section style="--dot:#72d8be">
+    <h2 class="group-title">受付・看護師</h2>
+    <div class="grid">
+
+    <a class="tile" href="resv.html" data-roles="staff" title="予約管理アプリ（受付・看護師向け）" style="--c:#F07CC0">
+      <span class="ic"><svg class="ph" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><g fill="currentColor"><path d="M216 48v40H40V48a8 8 0 0 1 8-8h160a8 8 0 0 1 8 8" opacity=".2"/><path d="M208 32h-24v-8a8 8 0 0 0-16 0v8H88v-8a8 8 0 0 0-16 0v8H48a16 16 0 0 0-16 16v160a16 16 0 0 0 16 16h160a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16M72 48v8a8 8 0 0 0 16 0v-8h80v8a8 8 0 0 0 16 0v-8h24v32H48V48Zm136 160H48V96h160zm-38.34-85.66a8 8 0 0 1 0 11.32l-48 48a8 8 0 0 1-11.32 0l-24-24a8 8 0 0 1 11.32-11.32L116 164.69l42.34-42.35a8 8 0 0 1 11.32 0"/></g></svg></span>
+      <span class="lb">予約管理</span>
+      <span class="tile-copy">予約の確認や<br>スケジュール管理を行います。</span>
+    </a>
+
+    <a class="tile" href="kintai.html" data-roles="staff" title="勤怠アプリ（受付・看護師向け）" style="--c:#62B7FF">
+      <span class="ic"><svg class="ph" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><g fill="currentColor"><path d="M224 128a96 96 0 1 1-96-96a96 96 0 0 1 96 96" opacity=".2"/><path d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24m0 192a88 88 0 1 1 88-88a88.1 88.1 0 0 1-88 88m64-88a8 8 0 0 1-8 8h-56a8 8 0 0 1-8-8V72a8 8 0 0 1 16 0v48h48a8 8 0 0 1 8 8"/></g></svg></span>
+      <span class="lb">勤怠</span>
+      <span class="tile-copy">出退勤の記録や<br>シフト管理を行います。</span>
+    </a>
+
+    <a class="tile" href="inventory.html" data-roles="staff" title="在庫・発注管理アプリ（受付・看護師向け）" style="--c:#FF9C31">
+      <span class="ic"><svg class="ph" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><g fill="currentColor"><path d="M128 129.09V232a8 8 0 0 1-3.84-1l-88-48.18a8 8 0 0 1-4.16-7V80.18a8 8 0 0 1 .7-3.25Z" opacity=".2"/><path d="m223.68 66.15l-88-48.15a15.88 15.88 0 0 0-15.36 0l-88 48.17a16 16 0 0 0-8.32 14v95.64a16 16 0 0 0 8.32 14l88 48.17a15.88 15.88 0 0 0 15.36 0l88-48.17a16 16 0 0 0 8.32-14V80.18a16 16 0 0 0-8.32-14.03M128 32l80.34 44l-29.77 16.3l-80.35-44Zm0 88L47.66 76l33.9-18.56l80.34 44ZM40 90l80 43.78v85.79l-80-43.75Zm176 85.78l-80 43.79v-85.75l32-17.51V152a8 8 0 0 0 16 0v-44.45L216 90v85.77Z"/></g></svg></span>
+      <span class="lb">在庫・発注</span>
+      <span class="tile-copy">在庫確認や発注を<br>行います。</span>
+    </a>
+
+    <a class="tile" href="petty-cash.html" data-roles="staff" title="小口管理アプリ（受付・看護師向け）" style="--c:#7FCA84">
+      <span class="ic"><svg class="ph" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><g fill="currentColor"><path d="M224 80v112a8 8 0 0 1-8 8H56a16 16 0 0 1-16-16V56a16 16 0 0 0 16 16h160a8 8 0 0 1 8 8" opacity=".2"/><path d="M216 64H56a8 8 0 0 1 0-16h136a8 8 0 0 0 0-16H56a24 24 0 0 0-24 24v128a24 24 0 0 0 24 24h160a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16m0 128H56a8 8 0 0 1-8-8V78.63A23.8 23.8 0 0 0 56 80h160Zm-48-60a12 12 0 1 1 12 12a12 12 0 0 1-12-12"/></g></svg></span>
+      <span class="lb">小口管理</span>
+      <span class="tile-copy">小口現金の管理を<br>行います。</span>
+    </a>
+
+    <a class="tile" href="vet-link.html" data-roles="staff" title="VetLink（受付・看護師向け）" style="--c:#FF9739">
+      <span class="ic"><svg class="ph" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><g fill="currentColor"><path d="M67.41 142.56C35.71 129.52 45.41 32.07 78 32c33.82.05 14 58.26-10.59 110.56" opacity=".2"/><path d="M232 168H63.86c2.66-5.24 5.33-10.63 8-16.11c14.94 1.65 32.58-8.78 52.66-31.14c5 13.46 14.45 30.93 30.58 31.25c9.09.18 18.11-5.2 27.42-16.37C189.31 143.75 203.3 152 232 152a8 8 0 0 0 0-16c-30.43 0-39.43-10.45-40-16.11a7.67 7.67 0 0 0-5.46-7.75a8.14 8.14 0 0 0-9.25 3.49C165.23 134.17 158 136.06 155.38 136c-8.26-.16-16.66-19.52-19.54-33.42a8 8 0 0 0-14.09-3.37c-20.21 25.34-33.75 33.87-42.18 36.08c8.49-18.87 14.83-35.44 18.89-49.39c6.82-23.44 7.32-39.83 1.51-50.1c-3-5.38-9.34-11.8-22.06-11.8c-16.06 0-28.73 15.18-34.77 41.65c-3.59 15.71-4.18 33.21-1.62 48s7.87 25.55 15.59 31.94c-3.73 7.72-7.53 15.26-11.23 22.41H24a8 8 0 0 0 0 16h13.41c-11.32 21-20.12 35.64-20.26 35.88a8 8 0 1 0 13.71 8.24c.15-.26 11.27-18.79 24.7-44.12H232a8 8 0 0 0 0-16M58.74 69.21C62.72 51.74 70.43 40 77.91 40c5.33 0 7.1 1.86 8.13 3.67c3 5.33 6.52 24.19-21.66 86.39c-8.26-11.28-11.07-37.06-5.64-60.85"/></g></svg></span>
+      <span class="lb">VetLink</span>
+      <span class="tile-copy">採血・連携記録を<br>管理します。</span>
+    </a>
+
+    </div>
+  </section>
+
+  <section class="role-group" data-section style="--dot:#a782df">
+    <h2 class="group-title">獣医師</h2>
+    <div class="grid">
+
+    <a class="tile" href="emr.html" data-roles="vet" title="電子カルテ（獣医師向け）" style="--c:#68DEBE">
+      <span class="ic"><svg class="ph" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><g fill="currentColor"><path d="M240 160a32 32 0 1 1-32-32a32 32 0 0 1 32 32" opacity=".2"/><path d="M220 160a12 12 0 1 1-12-12a12 12 0 0 1 12 12m-4.55 39.29A48.08 48.08 0 0 1 168 240h-24a48.05 48.05 0 0 1-48-48v-40.51A64 64 0 0 1 40 88V40a8 8 0 0 1 8-8h24a8 8 0 0 1 0 16H56v40a48 48 0 0 0 48.64 48c26.11-.34 47.36-22.25 47.36-48.83V48h-16a8 8 0 0 1 0-16h24a8 8 0 0 1 8 8v47.17c0 32.84-24.53 60.29-56 64.31V192a32 32 0 0 0 32 32h24a32.06 32.06 0 0 0 31.22-25a40 40 0 1 1 16.23.27ZM232 160a24 24 0 1 0-24 24a24 24 0 0 0 24-24"/></g></svg></span>
+      <span class="lb">電子カルテ</span>
+      <span class="tile-copy">診療記録を入力・<br>確認します。</span>
+    </a>
+
+    <a class="tile" href="karte-voice.html" data-roles="vet" title="カルテ音声SOAPアプリ（獣医師向け）" style="--c:#F2B83F">
+      <span class="ic"><svg class="ph" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><g fill="currentColor"><path d="M208 96v64H48V96Z" opacity=".2"/><path d="M56 96v64a8 8 0 0 1-16 0V96a8 8 0 0 1 16 0m32-72a8 8 0 0 0-8 8v192a8 8 0 0 0 16 0V32a8 8 0 0 0-8-8m40 32a8 8 0 0 0-8 8v128a8 8 0 0 0 16 0V64a8 8 0 0 0-8-8m40 32a8 8 0 0 0-8 8v64a8 8 0 0 0 16 0V96a8 8 0 0 0-8-8m40-16a8 8 0 0 0-8 8v96a8 8 0 0 0 16 0V80a8 8 0 0 0-8-8"/></g></svg></span>
+      <span class="lb">カルテ音声SOAP</span>
+      <span class="tile-copy">音声からSOAP形式で<br>カルテを作成します。</span>
+    </a>
+
+    <a class="tile" href="nyuin.html" data-roles="vet" title="入院管理アプリ（獣医師向け）" style="--c:#52D6E4">
+      <span class="ic"><svg class="ph" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><g fill="currentColor"><path d="M248 112v56H112V80h104a32 32 0 0 1 32 32" opacity=".2"/><path d="M216 72H32V48a8 8 0 0 0-16 0v160a8 8 0 0 0 16 0v-32h208v32a8 8 0 0 0 16 0v-96a40 40 0 0 0-40-40M32 88h72v72H32Zm88 72V88h96a24 24 0 0 1 24 24v48Z"/></g></svg></span>
+      <span class="lb">入院管理</span>
+      <span class="tile-copy">入院中の診療・経過を<br>記録します。</span>
+    </a>
+
+    <a class="tile" href="filaria.html" data-roles="vet" title="フィラリア健康診断アプリ（獣医師向け）" style="--c:#B8D8AD">
+      <span class="ic"><svg class="ph" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><g fill="currentColor"><path d="M208 144a80 80 0 0 1-160 0c0-72 80-128 80-128s80 56 80 128" opacity=".2"/><path d="M174 47.75a254.2 254.2 0 0 0-41.45-38.3a8 8 0 0 0-9.18 0A254.2 254.2 0 0 0 82 47.75C54.51 79.32 40 112.6 40 144a88 88 0 0 0 176 0c0-31.4-14.51-64.68-42-96.25M128 216a72.08 72.08 0 0 1-72-72c0-57.23 55.47-105 72-118c16.53 13 72 60.75 72 118a72.08 72.08 0 0 1-72 72m55.89-62.66a57.6 57.6 0 0 1-46.56 46.55a9 9 0 0 1-1.33.11a8 8 0 0 1-1.32-15.89c16.57-2.79 30.63-16.85 33.44-33.45a8 8 0 0 1 15.78 2.68Z"/></g></svg></span>
+      <span class="lb">フィラリア健康診断</span>
+      <span class="tile-copy">フィラリアの検査・結果を<br>管理します。</span>
+    </a>
+
+    <a class="tile" href="health.html" data-roles="vet" title="定期健康診断アプリ（獣医師向け）" style="--c:#B7D94D">
+      <span class="ic"><svg class="ph" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><g fill="currentColor"><path d="M232 102c0 66-104 122-104 122S24 168 24 102a54 54 0 0 1 54-54c22.59 0 41.94 12.31 50 32c8.06-19.69 27.41-32 50-32a54 54 0 0 1 54 54" opacity=".2"/><path d="M72 144H32a8 8 0 0 1 0-16h35.72l13.62-20.44a8 8 0 0 1 13.32 0l25.34 38l9.34-14A8 8 0 0 1 136 128h24a8 8 0 0 1 0 16h-19.72l-13.62 20.44a8 8 0 0 1-13.32 0L88 126.42l-9.34 14A8 8 0 0 1 72 144M178 40c-20.65 0-38.73 8.88-50 23.89C116.73 48.88 98.65 40 78 40a62.07 62.07 0 0 0-62 62v2.25a8 8 0 1 0 16-.5V102a46.06 46.06 0 0 1 46-46c19.45 0 35.78 10.36 42.6 27a8 8 0 0 0 14.8 0c6.82-16.67 23.15-27 42.6-27a46.06 46.06 0 0 1 46 46c0 53.61-77.76 102.15-96 112.8c-10.83-6.31-42.63-26-66.68-52.21a8 8 0 1 0-11.8 10.82c31.17 34 72.93 56.68 74.69 57.63a8 8 0 0 0 7.58 0C136.21 228.66 240 172 240 102a62.07 62.07 0 0 0-62-62"/></g></svg></span>
+      <span class="lb">定期健康診断</span>
+      <span class="tile-copy">健診の記録・管理を<br>行います。</span>
+    </a>
+
+    <a class="tile" href="dental.html" data-roles="vet" title="歯科治療報告書アプリ（獣医師向け）" style="--c:#62B7FF">
+      <span class="ic"><svg class="ph" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><g fill="currentColor"><path d="M216 79.76c.07 71.42-23.48 128.23-44 142.78a8 8 0 0 1-12.52-6C158 196.31 152 160 128 160s-30 36.31-31.51 56.53a8 8 0 0 1-12.52 6C63.48 208 39.93 151.18 40 79.76A47.94 47.94 0 0 1 88 32h80a47.94 47.94 0 0 1 48 47.76" opacity=".2"/><path d="M171 71.42L149.54 80L171 88.57a8 8 0 1 1-6 14.85l-37-14.81l-37 14.81a8 8 0 1 1-6-14.85L106.46 80L85 71.42a8 8 0 1 1 6-14.85l37 14.81l37-14.81a8 8 0 1 1 6 14.85m53 8.33c0 42.72-8 75.4-14.7 95.28c-8.72 25.8-20.62 45.49-32.64 54a15.69 15.69 0 0 1-15.95 1.41a16.09 16.09 0 0 1-9.18-13.36c-.85-11.5-5.05-49.08-23.53-49.08s-22.68 37.59-23.53 49.11a16.09 16.09 0 0 1-16 14.9a15.67 15.67 0 0 1-9.13-2.95c-12-8.53-23.92-28.22-32.64-54C40 155.15 32 122.47 32 79.75A56 56 0 0 1 88 24h80a56 56 0 0 1 56 55.75m-16 0A40 40 0 0 0 168 40H88a40 40 0 0 0-40 39.76c0 40.55 7.51 71.4 13.85 90.14c11.05 32.66 23 43.37 26.61 46C91.57 174.67 105.59 152 128 152s36.45 22.71 39.49 63.94c3.6-2.59 15.57-13.26 26.66-46c6.34-18.78 13.85-49.63 13.85-90.18Z"/></g></svg></span>
+      <span class="lb">歯科治療報告書</span>
+      <span class="tile-copy">歯科治療や処置内容を<br>記録します。</span>
+    </a>
+
+    <a class="tile" href="lit-library.html" data-roles="vet" title="文献ライブラリ（獣医師向け）" style="--c:#C082DE">
+      <span class="ic"><svg class="ph" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><g fill="currentColor"><path d="M48 72h64v112H48Zm142.64-33.61a8 8 0 0 0-9.5-6.21l-46.81 10a8.07 8.07 0 0 0-6.15 9.57L139.79 107l62.46-13.42Z" opacity=".2"/><path d="m231.65 194.55l-33.19-157.8a16 16 0 0 0-19-12.39l-46.81 10.06a16.08 16.08 0 0 0-12.3 19l33.19 157.8A16 16 0 0 0 169.16 224a16.3 16.3 0 0 0 3.38-.36l46.81-10.06a16.09 16.09 0 0 0 12.3-19.03M136 50.15v-.09l46.8-10l3.33 15.87L139.33 66Zm6.62 31.47l46.82-10.05l3.34 15.9L146 97.53Zm6.64 31.57l46.82-10.06l13.3 63.24l-46.82 10.06ZM216 197.94l-46.8 10l-3.33-15.87l46.8-10.07l3.33 15.85zM104 32H56a16 16 0 0 0-16 16v160a16 16 0 0 0 16 16h48a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16M56 48h48v16H56Zm0 32h48v96H56Zm48 128H56v-16h48z"/></g></svg></span>
+      <span class="lb">文献ライブラリ</span>
+      <span class="tile-copy">文献の保存・整理・検索を<br>行います。</span>
+    </a>
+
+    </div>
+  </section>
+
+  <section class="role-group" data-section style="--dot:#F2B83F">
+    <h2 class="group-title">その他</h2>
+    <div class="grid">
+
+    <a class="tile" href="case-bank.html" data-roles="other" title="症例音声メモアプリ" style="--c:#B879F0">
+      <span class="ic"><svg class="ph" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><g fill="currentColor"><path d="M168 64v64a40 40 0 0 1-40 40a40 40 0 0 1-40-40V64a40 40 0 0 1 40-40a40 40 0 0 1 40 40" opacity=".2"/><path d="M128 176a48.05 48.05 0 0 0 48-48V64a48 48 0 0 0-96 0v64a48.05 48.05 0 0 0 48 48M96 64a32 32 0 0 1 64 0v64a32 32 0 0 1-64 0Zm40 143.6V240a8 8 0 0 1-16 0v-32.4A80.11 80.11 0 0 1 48 128a8 8 0 0 1 16 0a64 64 0 0 0 128 0a8 8 0 0 1 16 0a80.11 80.11 0 0 1-72 79.6"/></g></svg></span>
+      <span class="lb">症例音声メモ</span>
+      <span class="tile-copy">診療中のメモを<br>音声で記録します。</span>
+    </a>
+
+    <a class="tile" href="linkage.html" data-roles="other" title="アプリどうしのつながり" style="--c:#65B8AB">
+      <span class="ic"><svg class="ph" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><g fill="currentColor"><path d="M208 200a32 32 0 1 1-32-32a32 32 0 0 1 32 32M176 88a32 32 0 1 0-32-32a32 32 0 0 0 32 32" opacity=".2"/><path d="M176 160a39.9 39.9 0 0 0-28.62 12.09l-46.1-29.63a39.8 39.8 0 0 0 0-28.92l46.1-29.63a40 40 0 1 0-8.66-13.45l-46.1 29.63a40 40 0 1 0 0 55.82l46.1 29.63A40 40 0 1 0 176 160m0-128a24 24 0 1 1-24 24a24 24 0 0 1 24-24M64 152a24 24 0 1 1 24-24a24 24 0 0 1-24 24m112 72a24 24 0 1 1 24-24a24 24 0 0 1-24 24"/></g></svg></span>
+      <span class="lb">アプリのつながり</span>
+      <span class="tile-copy">アプリ間の連携を<br>確認します。</span>
+    </a>
+
+    </div>
+  </section>
+
+  </nav>
+
+  <div class="foot">
+    <a class="more" href="classic.html">
+      <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+      <span>ogikubotwinah.github.io</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 5h5v5M19 5l-9 9"/><path d="M18 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
+    </a>
+  </div>
+
+</main>
+</div>
+
+<script>
+(function(){
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.chip'));
+  var tiles = Array.prototype.slice.call(document.querySelectorAll('.tile'));
+  var sections = Array.prototype.slice.call(document.querySelectorAll('[data-section]'));
+  var KEY = 'clinic-app-guides.role';
+  function apply(role){
+    chips.forEach(function(c){ c.setAttribute('aria-pressed', String(c.dataset.role === role)); });
+    tiles.forEach(function(t){
+      var ok = role === 'all' || (' ' + t.dataset.roles + ' ').indexOf(' ' + role + ' ') >= 0;
+      if (ok) t.removeAttribute('hidden'); else t.setAttribute('hidden', '');
+    });
+    sections.forEach(function(section){
+      var hasVisibleTile = Array.prototype.some.call(section.querySelectorAll('.tile'), function(tile){
+        return !tile.hasAttribute('hidden');
+      });
+      if (hasVisibleTile) section.removeAttribute('hidden'); else section.setAttribute('hidden', '');
+    });
+    try { localStorage.setItem(KEY, role); } catch(e){}
+  }
+  chips.forEach(function(c){ c.addEventListener('click', function(){ apply(c.dataset.role); }); });
+  var saved = null;
+  try { saved = localStorage.getItem(KEY); } catch(e){}
+  if (saved && chips.some(function(c){ return c.dataset.role === saved; })) apply(saved);
+})();
+</script>
 </body>
 </html>
