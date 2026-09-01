@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>昼休みの電話（自動応答）使用ガイド｜荻窪ツイン動物病院</title>
+<style>
+  :root {
+    --ind: #4f46e5; --ind-bg: #eef2ff;
+    --teal: #0d9488; --teal-bg: #f0fdfa;
+    --blue: #2563eb; --blue-bg: #eff6ff;
+    --green: #16a34a; --green-bg: #f0fdf4;
+    --amber: #b45309; --amber-bg: #fffbeb;
+    --red: #dc2626; --red-bg: #fef2f2;
+    --border: #e2e8f0;
+  }
+  * { box-sizing: border-box; }
+  body { font-family: "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif; margin: 0; background: #f8fafc; color: #1e293b; line-height: 1.7; }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 24px 16px 80px; }
+  h1 { font-size: 1.5rem; background: linear-gradient(135deg, #3730a3, #6366f1); color: #fff; padding: 20px 24px; border-radius: 16px; margin: 0 0 8px; }
+  h1 small { display: block; font-size: .8rem; font-weight: normal; opacity: .9; margin-top: 6px; }
+  h2 { font-size: 1.2rem; border-left: 6px solid var(--ind); padding-left: 10px; margin: 40px 0 12px; }
+  h3 { font-size: 1.02rem; margin: 22px 0 8px; }
+  .card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 18px 20px; margin: 12px 0; }
+  table { border-collapse: collapse; width: 100%; margin: 10px 0; background: #fff; font-size: .92rem; }
+  th, td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background: #f1f5f9; }
+  .badge { display: inline-block; padding: 1px 10px; border-radius: 999px; font-size: .75rem; font-weight: 700; margin-right: 4px; white-space: nowrap; }
+  .b-staff { background: var(--ind-bg); color: var(--ind); border: 1px solid #c7d2fe; }
+  .b-auto { background: var(--green-bg); color: var(--green); border: 1px solid #bbf7d0; }
+  .flow { display: flex; flex-direction: column; gap: 0; margin: 14px 0; }
+  .fbox { border: 2px solid var(--border); border-radius: 12px; padding: 12px 16px; background: #fff; }
+  .fbox.staff { border-color: #a5b4fc; background: var(--ind-bg); }
+  .fbox.auto { border-color: #86efac; background: var(--green-bg); }
+  .fbox b { display: block; margin-bottom: 2px; }
+  .farrow { text-align: center; color: #94a3b8; font-size: 1.2rem; line-height: 1.4; }
+  .cap { font-size: .78rem; color: #64748b; text-align: center; margin-top: 4px; }
+  .note { background: #fffbeb; border: 1px solid #fde68a; border-radius: 10px; padding: 10px 14px; margin: 10px 0; font-size: .92rem; }
+  .imp { background: var(--red-bg); border: 1px solid #fecaca; border-radius: 10px; padding: 10px 14px; margin: 10px 0; font-size: .92rem; }
+  .tip { background: var(--ind-bg); border: 1px solid #c7d2fe; border-radius: 10px; padding: 10px 14px; margin: 10px 0; font-size: .92rem; }
+  .chip { display: inline-block; padding: 0 8px; border-radius: 999px; font-size: .8rem; font-weight: 700; white-space: nowrap; }
+  .c-teal { background: var(--teal-bg); color: var(--teal); border: 1px solid #99f6e4; }
+  .c-blue { background: var(--blue-bg); color: var(--blue); border: 1px solid #bfdbfe; }
+  .c-amber{ background: var(--amber-bg); color: var(--amber); border: 1px solid #fde68a; }
+  .say { background: #fff; border-left: 5px solid #a5b4fc; border-radius: 0 10px 10px 0; padding: 12px 16px; margin: 10px 0; font-size: .95rem; }
+  .msg { background: #0f172a; color: #e2e8f0; border-radius: 12px; padding: 14px 16px; margin: 10px 0; font-family: "SF Mono", Menlo, Consolas, monospace; font-size: .85rem; line-height: 1.85; white-space: pre-wrap; overflow-wrap: anywhere; }
+  footer { margin-top: 50px; color: #64748b; font-size: .85rem; text-align: center; }
+  a.applink{color:#1d4ed8;text-decoration:underline;text-underline-offset:2px;overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>昼休みの電話（自動応答）使用ガイド
+<small><a href="./" style="color:#fff;text-decoration:underline">← ガイド一覧へ</a></small>
+<small>受付・看護師向け ｜ 2026年9月2日版 ｜ 荻窪ツイン動物病院</small></h1>
+
+<div class="card">
+<b>30秒まとめ</b><br>
+昼休み（12時〜16時）にかかってきた電話は、<b>自動音声</b>が応答します。飼い主さまが番号を選び、ご用件を録音すると、<b>LINE WORKSの「入電通知」に文字起こし付きで届きます</b>。<br>
+届いたら、<b>その番号へ折り返して、対応した内容をその部屋に返信</b>してください。ここまでは今までと同じです。<br>
+2026年9月1日に、それまでの「DXでんわ」から<b>当院で作ったしくみ</b>に切り替わりました。<b>通知を送るbotの名前が「ツイン サポート」に変わり、録音の中身が文字で全部載るようになりました。</b>
+</div>
+
+<h2>1. 何が変わって、何が変わっていないか</h2>
+
+<table>
+<tr><th style="width:34%">項目</th><th>今までと同じ／変わった</th></tr>
+<tr><td>飼い主さまに流れる案内</td><td><b>ほぼ同じ</b>です。番号を押して選ぶ流れも同じです</td></tr>
+<tr><td>通知が届く場所</td><td><b>同じ</b>「入電通知」のトークルームです</td></tr>
+<tr><td>対応したことの共有</td><td><b>同じ</b>で、その部屋への返信でお願いします</td></tr>
+<tr><td>通知を送るbotの名前</td><td><b>変わりました</b>。「DXでんわbot」→「<b>ツイン サポート</b>」</td></tr>
+<tr><td>通知の中身</td><td><b>変わりました</b>。録音の内容が<b>そのまま文字で全部</b>載ります。要約と管理画面のリンクはなくなりました</td></tr>
+<tr><td>通知が届くまでの時間</td><td><b>最大3分ほど</b>かかります。今までより少し遅くなりました</td></tr>
+<tr><td>飼い主さまへのショートメッセージ</td><td><b>当面のあいだ送られません</b>（後述）</td></tr>
+</table>
+
+<h2>2. 飼い主さまには何が流れているか</h2>
+
+<p>昼休みにかけてこられた方には、まずこの案内が流れます。</p>
+
+<div class="say">
+お電話ありがとうございます。荻窪ツイン動物病院です。誠に恐れ入りますが、12時から16時は休診時間となります。<b>今すぐ診察が必要な場合は、1番を押してください。すぐにおつなぎいたします。</b>そのほかのご用件は、このあとご案内いたします。
+</div>
+
+<p>そのあと、番号のご案内が流れます。</p>
+
+<table>
+<tr><th style="width:16%">番号</th><th>ご案内の内容</th><th style="width:38%">押されると何が起きるか</th></tr>
+<tr><td><b>1番</b></td><td>折り返しのお電話、または、呼吸が苦しそう・ぐったりしている・意識がないなど、今すぐ対応が必要な場合</td><td><b>院内の電話（03-3220-1122）が鳴ります。</b>出られなかったときは「おつなぎできませんでした」と案内して録音になります</td></tr>
+<tr><td><b>2番</b></td><td>本日の診察や診察のご相談</td><td>さらに「1番＝本日中」「2番＝明日以降」に分かれます</td></tr>
+<tr><td><b>3番</b></td><td>トリミング</td><td>録音になります</td></tr>
+<tr><td><b>4番</b></td><td>ペットホテル・フード・お薬の処方など、その他</td><td>録音になります</td></tr>
+<tr><td><b>5番</b></td><td>案内をもう一度聞く</td><td>番号の案内が最初から流れます</td></tr>
+</table>
+
+<div class="tip">
+<b>案内の途中でも1番は押せます。</b>全部聞き終わるのを待つ必要はありません。急いでいる飼い主さまが最短で院内につながるようにしてあります。
+</div>
+
+<h3>2番（診察）を選んだあと</h3>
+<table>
+<tr><th style="width:22%">選択</th><th>流れ</th></tr>
+<tr><td><b>1番</b>（本日中）</td><td>診察券番号とお名前（初めての方はお名前・診察の内容・電話番号）を録音していただきます</td></tr>
+<tr><td><b>2番</b>（明日以降）</td><td>公式LINEで予約できることをご案内して終わります。<b>録音は残りません</b></td></tr>
+</table>
+
+<div class="note">
+<b>録音は90秒までです。</b>10秒間なにも話されないと、そこで録音が終わります。飼い主さまが話し終えてそのまま電話を切っても、録音は残ります。
+</div>
+
+<h2>3. 入電通知の見かた</h2>
+
+<p>LINE WORKSの「<b>入電通知</b>」に、<b>ツイン サポート</b>から次の形で届きます。</p>
+
+<div class="msg">📞 入電通知（昼休み自動応答）
+着信日時：2026年09月02日 13:24:11
+発信者電話番号：090-0000-0000
+録音時間：42秒
+
+▼文字起こし
+もしもし、診察券番号◯◯番の◯◯です。今朝から吐いていて、水も飲めていません。今日みていただけますか。折り返しは、この番号にお願いします。</div>
+<div class="cap">※ 見本です。実際には飼い主さまのお名前や番号が入ります</div>
+
+<table>
+<tr><th style="width:30%">項目</th><th>内容</th></tr>
+<tr><td>着信日時</td><td>電話がかかってきた時刻です</td></tr>
+<tr><td>発信者電話番号</td><td><b>折り返し先です。</b>ここへおかけください</td></tr>
+<tr><td>録音時間</td><td>吹き込みの長さです</td></tr>
+<tr><td>▼文字起こし</td><td><b>録音の内容がそのまま文字になっています。</b>聞き直さなくても、ここを読めば用件が分かります</td></tr>
+</table>
+
+<div class="note">
+<b>1番を押して院内につながった電話は、通知に出ません。</b>その場でお話ししているためです。<b>つながらなかった場合だけ</b>、録音に切り替わって通知が届きます。
+</div>
+
+<h2>4. 通知が届いたら</h2>
+
+<div class="flow">
+  <div class="fbox auto"><b><span class="badge b-auto">自動</span>入電通知に届く</b>着信から最大3分ほどで、文字起こし付きで届きます</div>
+  <div class="farrow">↓</div>
+  <div class="fbox staff"><b><span class="badge b-staff">スタッフ</span>文字起こしを読む</b>用件・急ぎかどうかを判断します。聞き直しは要りません</div>
+  <div class="farrow">↓</div>
+  <div class="fbox staff"><b><span class="badge b-staff">スタッフ</span>発信者電話番号へ折り返す</b></div>
+  <div class="farrow">↓</div>
+  <div class="fbox staff"><b><span class="badge b-staff">スタッフ</span>その通知に返信して共有する</b>「折り返し済み」「予約お取りしました」など。<b>今までと同じやり方です</b></div>
+</div>
+
+<div class="imp">
+<b>録音の音声は院内に残りません。</b>文字起こしをしたあとで消しています。<b>通知の文字起こしが唯一の記録</b>になりますので、対応が終わるまで通知を消さないでください。
+</div>
+
+<h2>5. 時間帯によって案内が変わります</h2>
+
+<table>
+<tr><th style="width:26%">時間帯</th><th>飼い主さまに流れる案内</th><th style="width:24%">そのあと</th></tr>
+<tr><td><b>12時〜16時</b><br>（昼休み）</td><td>「12時から16時は休診時間となります」＋番号のご案内</td><td>番号を選んで録音</td></tr>
+<tr><td>9時〜12時／16時〜19時<br>（診療時間中）</td><td>「ただいま電話が大変混み合っており、お待たせしております」＋番号のご案内</td><td>番号を選んで録音</td></tr>
+<tr><td><b>19時〜翌9時</b><br>（時間外）</td><td>「本日の診療は終了いたしました」＋診療時間のご案内＋夜間対応の動物病院の受診をご検討いただくご案内</td><td><b>番号は選べません。</b>そのまま録音になります</td></tr>
+<tr><td>12月30日午後〜1月3日<br>（年末年始）</td><td>「年末年始のため休診」＋電話対応の時間（午前9時〜10時、午後5時〜6時）＋1月4日から通常どおり</td><td><b>録音もありません。</b>案内のみで終わります</td></tr>
+</table>
+
+<div class="note">
+昼休み以外の時間に自動音声が流れるのは、<b>転送が止められていないとき</b>です。ふだんは昼休みだけ自動音声になります。
+</div>
+
+<h2>6. ショートメッセージについて</h2>
+
+<p>以前は、飼い主さまへ「受付完了」のお知らせと「ご予約ページのご案内」をショートメッセージでお送りしていました。<b>当面のあいだ、これは送られません。</b></p>
+
+<div class="tip">
+<b>自動音声でもご案内していません</b>ので、「メッセージが届かない」というお問い合わせは起きない想定です。もし飼い主さまから聞かれた場合は、<b>お電話で折り返しご連絡する</b>とお伝えください。
+</div>
+
+<h2>7. よくある質問</h2>
+
+<h3>通知が来ないのですが</h3>
+<p>着信から<b>最大3分ほど</b>かかります。3分待っても届かない場合は、下の「困ったとき」へ。<b>録音そのものは残っています</b>ので、あとから通知が届きます（通知が失敗しても、次の確認のときにやり直すしくみです）。</p>
+
+<h3>文字起こしが途中で切れています</h3>
+<p>録音が10秒の無音で終わったか、90秒に達した可能性があります。<b>発信者電話番号は残っています</b>ので、折り返してご用件をうかがってください。</p>
+
+<h3>電話番号が読み取れません</h3>
+<p>非通知でおかけの場合、番号が出ないことがあります。その場合は文字起こしの中で番号をおっしゃっていないか確認してください。</p>
+
+<h3>お名前が聞き取れていません</h3>
+<p>文字起こしは録音をそのまま文字にしたものです。<b>聞き取れなかったところを推測で補うことはしていません</b>ので、はっきりしない部分は折り返しの電話で確認してください。</p>
+
+<h3>飼い主さまが番号を押さずに切ってしまったようです</h3>
+<p>その場合は録音が残らないため、通知も届きません。かけ直していただくのを待つことになります。</p>
+
+<h2>8. 困ったとき</h2>
+
+<table>
+<tr><th style="width:40%">こんなとき</th><th>どうするか</th></tr>
+<tr><td>3分待っても通知が届かない</td><td>院長へご連絡ください</td></tr>
+<tr><td>昼休みなのに自動音声にならない</td><td>電話の転送が始まっていない可能性があります。院長へご連絡ください</td></tr>
+<tr><td>案内の内容がおかしい・聞き取りにくい</td><td>気づいた点をそのまま院長へお伝えください。文言はすぐ直せます</td></tr>
+<tr><td>1番を押した方が院内につながらない</td><td>院長へご連絡ください</td></tr>
+</table>
+
+<div class="tip">
+<b>気づいたことは遠慮なく教えてください。</b>案内の言い回しも、通知の出しかたも、あとから変えられます。実際に電話を受けている方の気づきがいちばん役に立ちます。
+</div>
+
+<footer>
+荻窪ツイン動物病院 ｜ 昼休みの電話（自動応答）使用ガイド ｜ 2026年9月2日版
+</footer>
+
+</div>
+</body>
+</html>
