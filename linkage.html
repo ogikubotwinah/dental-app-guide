@@ -46,6 +46,7 @@
   .c-blue { background: var(--blue-bg); color: var(--blue); border: 1px solid #bfdbfe; }
   .c-amber{ background: var(--amber-bg); color: var(--amber); border: 1px solid #fde68a; }
   footer { margin-top: 50px; color: #64748b; font-size: .85rem; text-align: center; }
+  a.applink{color:#1d4ed8;text-decoration:underline;text-underline-offset:2px;overflow-wrap:anywhere}
 </style><style>
   .map { display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; margin:16px 0; }
   .map .mbox { border:2px solid var(--border); border-radius:12px; padding:10px 12px; background:#fff; font-size:.86rem; }
@@ -65,7 +66,7 @@
 
 <h1>アプリどうしのつながり（連携ガイド）
 <small><a href="./" style="color:#fff;text-decoration:underline">← ガイド一覧へ</a></small>
-<small>全スタッフ向け ｜ 2026年8月15日版 ｜ 荻窪ツイン動物病院</small></h1>
+<small>全スタッフ向け ｜ 2026年9月2日版 ｜ 荻窪ツイン動物病院</small></h1>
 
 <div class="card">
 <b>30秒まとめ</b><br>
@@ -156,6 +157,26 @@
 <tr><td>撮影した画像</td><td>患者の時系列</td></tr>
 <tr><td>カルテ・検査（選んだ日）</td><td>紹介状の中身</td></tr>
 </table>
+
+<h2>9. アプリを開くURL（院内／院外の早見表）</h2>
+<p style="margin:0 0 6px">アプリ名を押すと使い方ガイド、URLを押すとアプリが開きます。<b>院外のURLは、その端末で Tailscale（タイルスケール）を ON にしているときだけ開きます</b>（初回の設定は院長へ）。</p>
+<table>
+<tr><th style="width:26%">アプリ</th><th>院内（病院のWi-Fi）</th><th>院外（自宅・外出先）</th></tr>
+<tr><td><a class="applink" href="resv.html">📅 予約管理</a></td><td><a class="applink" href="http://192.168.20.250:4000" target="_blank" rel="noopener">http://192.168.20.250:4000</a></td><td><a class="applink" href="https://serverpc.tail2de5bb.ts.net:8455" target="_blank" rel="noopener">https://serverpc.tail2de5bb.ts.net:8455</a></td></tr>
+<tr><td><a class="applink" href="kintai.html">⏰ 勤怠（マイページ）</a></td><td><a class="applink" href="http://192.168.20.250:4100/my" target="_blank" rel="noopener">http://192.168.20.250:4100/my</a></td><td><a class="applink" href="https://serverpc.tail2de5bb.ts.net:8453/my" target="_blank" rel="noopener">https://serverpc.tail2de5bb.ts.net:8453/my</a></td></tr>
+<tr><td><a class="applink" href="inventory.html">📦 在庫・発注</a></td><td><a class="applink" href="https://192.168.20.250:3000" target="_blank" rel="noopener">https://192.168.20.250:3000</a></td><td><a class="applink" href="https://serverpc.tail2de5bb.ts.net" target="_blank" rel="noopener">https://serverpc.tail2de5bb.ts.net</a></td></tr>
+<tr><td><a class="applink" href="petty-cash.html">💴 小口管理</a></td><td><a class="applink" href="http://192.168.20.250:3400" target="_blank" rel="noopener">http://192.168.20.250:3400</a></td><td><a class="applink" href="https://serverpc.tail2de5bb.ts.net:8445" target="_blank" rel="noopener">https://serverpc.tail2de5bb.ts.net:8445</a></td></tr>
+<tr><td><a class="applink" href="vet-link.html">🐾 VetLink</a></td><td><a class="applink" href="http://192.168.20.250:3007" target="_blank" rel="noopener">http://192.168.20.250:3007</a></td><td><a class="applink" href="https://serverpc.tail2de5bb.ts.net:8450" target="_blank" rel="noopener">https://serverpc.tail2de5bb.ts.net:8450</a></td></tr>
+<tr><td><a class="applink" href="emr.html">🩺 電子カルテ</a></td><td><b>受付PCは必ず</b> <a class="applink" href="https://192.168.20.250:3801/" target="_blank" rel="noopener">https://192.168.20.250:3801/</a><br>その他のPC・iPad <a class="applink" href="http://192.168.20.250:3800/" target="_blank" rel="noopener">http://192.168.20.250:3800/</a></td><td><a class="applink" href="https://serverpc.tail2de5bb.ts.net:8452/" target="_blank" rel="noopener">https://serverpc.tail2de5bb.ts.net:8452/</a><br><span style="font-size:.85rem;color:#64748b">iPhoneで開けないとき <a class="applink" href="http://100.111.66.29:3800/" target="_blank" rel="noopener">http://100.111.66.29:3800/</a></span></td></tr>
+<tr><td><a class="applink" href="karte-voice.html">🎙 カルテ音声SOAP</a></td><td><a class="applink" href="https://192.168.20.250:3601" target="_blank" rel="noopener">https://192.168.20.250:3601</a></td><td><a class="applink" href="https://serverpc.tail2de5bb.ts.net:8449" target="_blank" rel="noopener">https://serverpc.tail2de5bb.ts.net:8449</a></td></tr>
+<tr><td><a class="applink" href="nyuin.html">🛏 入院管理</a></td><td><a class="applink" href="http://192.168.20.250:3500" target="_blank" rel="noopener">http://192.168.20.250:3500</a></td><td><a class="applink" href="https://serverpc.tail2de5bb.ts.net:8446" target="_blank" rel="noopener">https://serverpc.tail2de5bb.ts.net:8446</a></td></tr>
+<tr><td><a class="applink" href="filaria.html">🩸 フィラリア健康診断</a></td><td><a class="applink" href="http://192.168.20.250:3300" target="_blank" rel="noopener">http://192.168.20.250:3300</a></td><td><a class="applink" href="https://serverpc.tail2de5bb.ts.net:8451" target="_blank" rel="noopener">https://serverpc.tail2de5bb.ts.net:8451</a></td></tr>
+<tr><td><a class="applink" href="health.html">💚 定期健康診断</a></td><td><a class="applink" href="http://192.168.20.250:3100" target="_blank" rel="noopener">http://192.168.20.250:3100</a></td><td><a class="applink" href="https://serverpc.tail2de5bb.ts.net:8443" target="_blank" rel="noopener">https://serverpc.tail2de5bb.ts.net:8443</a><br><span style="font-size:.85rem;color:#64748b">音声入力を使うときは院内でもこちら</span></td></tr>
+<tr><td><a class="applink" href="dental.html">🦷 歯科治療報告書</a></td><td><a class="applink" href="http://192.168.20.250:5173" target="_blank" rel="noopener">http://192.168.20.250:5173</a></td><td><b>開けません</b>（院内のみ）</td></tr>
+<tr><td><a class="applink" href="lit-library.html">📚 文献ライブラリ</a></td><td><a class="applink" href="http://192.168.20.250:3900" target="_blank" rel="noopener">http://192.168.20.250:3900</a></td><td><a class="applink" href="http://100.111.66.29:3900" target="_blank" rel="noopener">http://100.111.66.29:3900</a><br><span style="font-size:.85rem;color:#64748b">このアプリだけ数字のアドレスです</span></td></tr>
+<tr><td><a class="applink" href="case-bank.html">🎤 症例音声メモ</a></td><td><a class="applink" href="https://192.168.20.250:3701" target="_blank" rel="noopener">https://192.168.20.250:3701</a></td><td><a class="applink" href="https://serverpc.tail2de5bb.ts.net:8448" target="_blank" rel="noopener">https://serverpc.tail2de5bb.ts.net:8448</a></td></tr>
+</table>
+<div class="note"><b>「保護されていない通信」「証明書」の警告が出たら</b>：院内のアプリなので<b>「詳細」→「このまま進む（アクセスする）」</b>で開いて大丈夫です。院外（…ts.net）のURLでは警告は出ません。</div>
 
 <footer>
 つながりが増えたらこのページを更新します。「ここも自動になるはず」と思うところがあれば院長までお知らせください。

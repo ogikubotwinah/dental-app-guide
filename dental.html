@@ -50,6 +50,7 @@
   .tooth.c { background: #ede9fe; border-color: #c4b5fd; }
   .tooth.l { background: #dcfce7; border-color: #86efac; }
   footer { margin-top: 50px; color: #64748b; font-size: .85rem; text-align: center; }
+  a.applink{color:#1d4ed8;text-decoration:underline;text-underline-offset:2px;overflow-wrap:anywhere}
 </style>
 </head>
 <body>
@@ -57,7 +58,7 @@
 
 <h1>歯科治療報告書アプリ 自動化ガイド
 <small><a href="./" style="color:#fff;text-decoration:underline">← ガイド一覧へ</a></small>
-<small>獣医師向け ｜ 2026年6月13日版 ｜ 荻窪ツイン動物病院</small></h1>
+<small>獣医師向け ｜ 2026年9月2日版 ｜ 荻窪ツイン動物病院</small></h1>
 
 <div class="card">
 <b>30秒まとめ</b><br>
@@ -67,6 +68,13 @@
 <span class="badge b-staff">橙 = 撮影スタッフ</span>
 <span class="badge b-auto">緑 = 自動（AI・システム）</span>
 </div>
+</div>
+
+<div class="card" style="border-color:#93c5fd;background:#eff6ff">
+<b>アプリを開く</b><br>
+・<b>院内</b>（病院のWi-Fi・院内のPC）：<b><a class="applink" href="http://192.168.20.250:5173" target="_blank" rel="noopener">http://192.168.20.250:5173</a></b><br>
+・<b>院外</b>（自宅など）：<b>開けません。</b>このアプリは<b>院内のネットワークからだけ</b>使えます。
+<br><span style="font-size:.85rem;color:#64748b">※アドレスは <b>192.168.20.250</b> です（<b>.100</b> は別のパソコンで、開きません）。画面が真っ白なときは <b>Ctrl＋F5</b>（Macは ⌘＋Shift＋R）で読み込み直してください。</span>
 </div>
 
 <h2>1. 報告書ができるまでの全体図</h2>
