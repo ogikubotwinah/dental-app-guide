@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#003F36">
+<title>給与計算アプリ 使い方｜管理者用</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="apps.css">
+<style>
+  .doc{max-width:760px;margin:0 auto}
+  .doc section{background:#fff;border-radius:16px;padding:20px 22px;margin-bottom:14px;
+    box-shadow:0 6px 18px rgba(0,63,54,.08)}
+  .doc h2{font-size:18px;margin:0 0 12px;padding-bottom:8px;border-bottom:2px solid #E8F0ED}
+  .doc h3{font-size:15px;margin:18px 0 6px;color:#003F36}
+  .doc p,.doc li{font-size:14.5px;line-height:1.95;color:#3f4f4b}
+  .doc ol,.doc ul{padding-left:1.3em;margin:6px 0}
+  .doc code{background:#F1F6F4;border-radius:6px;padding:2px 7px;font-size:13px}
+  .doc a.applink{display:inline-block;background:#003F36;color:#fff;text-decoration:none;
+    border-radius:10px;padding:10px 16px;font-weight:700;font-size:14.5px;margin-top:6px}
+  .warn{background:#FFF3F0;border:1px solid #F3C4B8;border-radius:12px;padding:14px 16px;margin-top:10px}
+  .tip{background:#FFF8E1;border:1px solid #F0D88A;border-radius:12px;padding:14px 16px;margin-top:10px}
+  .doc table{width:100%;border-collapse:collapse;font-size:14px;margin-top:8px}
+  .doc th,.doc td{border:1px solid #DDE8E4;padding:8px 10px;text-align:left;vertical-align:top}
+  .doc th{background:#F1F6F4;white-space:nowrap}
+  .back{display:inline-block;margin-bottom:14px;font-size:14px;color:#003F36}
+</style>
+</head>
+<body>
+
+<div class="page">
+<header class="hero">
+  <div class="hero-in">
+    <p class="eyebrow">管理者用（院長のみ）</p>
+    <h1>給与計算<small>使い方</small></h1>
+    <p class="hero-copy">毎月の給与、昇給、賞与、振込まで。<br>スタッフ向けの一覧には出していません。</p>
+  </div>
+</header>
+
+<main class="sheet">
+<div class="doc">
+<a class="back" href="admin.html">← 管理者用の入口へ戻る</a>
+
+<section>
+  <h2>開き方</h2>
+  <p>院内のパソコン、または Tailscale に繋がっている端末から開きます。外部からは開きません。</p>
+  <a class="applink" href="https://serverpc.tail2de5bb.ts.net:8453/payroll">給与計算を開く</a>
+  <p>開くと<strong>パスコード</strong>を聞かれます。これは勤怠アプリの管理パスコードとは<strong>別のもの</strong>です。
+     勤怠の管理画面に入れる人（勤怠の担当者）は、給与の中身は開けません。</p>
+  <div class="warn">
+    <strong>紙に印刷しないでください。</strong>給与明細・賃金台帳は画面で確認します（2026-08-21 院長）。
+    保存が必要なときはPDFにしてください。
+  </div>
+</section>
+
+<section>
+  <h2>画面は4つ</h2>
+  <table>
+    <tr><th>給与</th><td>月ごとの支給控除一覧。検索・印刷・Excel出力ができます。ここが普段見る画面です。</td></tr>
+    <tr><th>設定</th><td>従業員ごとの給与・手当・社会保険・扶養、会社の設定。新しい人の登録もここです。</td></tr>
+    <tr><th>人件費</th><td>職種ごと・1人あたり・月ごとの動き、時間外の割合、前月から動いた人。</td></tr>
+    <tr><th>導入の設定</th><td>ラマルクとして他院に入れるときの初期設定です。当院では普段使いません。</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>毎月の流れ（25日払い）</h2>
+  <p>Telegram にこちらから声をかけます。<strong>院長がすることは、返信2回だけ</strong>です。</p>
+  <ol>
+    <li><strong>18日ごろ</strong>「締めのチェック」が届きます。勤怠に直すところがあれば勤怠の担当者へ連絡が行きます。
+        手入力が要る人（毎月額が変わる方）がいれば、テンプレートが届くので数字を入れて返信します。<br>
+        <code>【給与手入力 2026-09】 〇〇 〇〇 基本給 123456</code></li>
+    <li><strong>20日ごろ</strong>「試算」が届きます（人数・総支給・差引・0円の人・要確認）。
+        よければ <code>【給与確定 2026-09】</code> と返信します。</li>
+    <li>返信すると、明細の確定（スタッフのマイページに出ます）と<strong>振込ファイルの作成</strong>まで進みます。</li>
+    <li>みずほビジネスWEBで取り込み → 承認。<strong>1回20件・500万円以内</strong>に分けたファイルが出ます。
+        締切は<strong>振込日の前営業日17:30</strong>です。当日の朝と昼にお知らせします。</li>
+    <li>終わったら <code>【振込承認済み 2026-09】</code> と返信します。</li>
+  </ol>
+</section>
+
+<section>
+  <h2>昇給（毎年4月）</h2>
+  <p><strong>2か月前（2月ごろ）に「今年の昇給を決めましょう」とお知らせ</strong>が届きます。終わるまで週1回くり返します。</p>
+  <ul>
+    <li>決めた額を入れる … <code>node raise.js plan 2027-04-01 〇〇〇〇 000000</code>（氏名と新しい額）</li>
+    <li>今回は上げない人も残す … <code>node raise.js skip 2027-04-01 〇〇〇〇</code>（「決めた」と「忘れた」を区別するため）</li>
+    <li>給与へ反映 … <code>node raise.js apply 2027-04-01</code></li>
+  </ul>
+  <div class="tip">
+    昇給の<strong>3か月後</strong>に「社会保険の月額変更（随時改定）の確認」が自動で届きます。
+    2等級以上動く人がいると届出が要ります。2026年は4月昇給→7月から6名の等級が変わりました（人数だけ・氏名は画面で確認します）。
+  </div>
+</section>
+
+<section>
+  <h2>賞与（7月・12月）</h2>
+  <p>支給日の<strong>45日前</strong>から順にお知らせが届きます（回を決める→誰にいくら→明細→確定→振込）。</p>
+  <ul>
+    <li>回を作る … <code>node bonus.js plan 2026-12 2026-12-04 冬</code></li>
+    <li>対象者を見る … <code>node bonus.js check 2026-12</code>（在籍・入社からの期間・算定期間の欠勤を出します）</li>
+    <li>各人を決める … <code>node bonus.js set 2026-12 〇〇〇〇 2</code>（基本給の2か月分）／<code>… 円 〇〇〇〇〇〇</code>（金額で）</li>
+    <li>明細 … <code>node bonus.js build 2026-12 --save</code> → 確定 <code>node bonus.js confirm 2026-12</code></li>
+  </ul>
+  <div class="warn">
+    <strong>就業規則と実際の支給日がずれています。</strong>規則は「7月・12月の最初の金曜日」ですが、
+    2026年7月の実際の支給は7月10日（第2金曜）でした。賞与は「支給日に在籍している人に払う」決まりなので、
+    どちらかに揃えてください。
+  </div>
+</section>
+
+<section>
+  <h2>困ったとき</h2>
+  <ul>
+    <li><strong>金額が違う気がする</strong> … 画面のExcel出力と、会計士の支給控除一覧表を並べて見ます。1円単位で合う作りです。</li>
+    <li><strong>スタッフから「明細が見えない」</strong> … その月が確定済みか確認します。確定していない月は出ません。</li>
+    <li><strong>パスコードを忘れた</strong> … serverpc の設定に入っています。院長がクリップボードで確認してください。</li>
+    <li><strong>いま何をすればいいか分からない</strong> … <code>node pay_calendar.js --text</code> で予定が出ます。</li>
+  </ul>
+</section>
+
+<a class="back" href="admin.html">← 管理者用の入口へ戻る</a>
+</div>
+</main>
+</div>
+</body>
+</html>
